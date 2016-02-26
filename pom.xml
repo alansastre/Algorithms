@@ -11,8 +11,9 @@
   <version>1.0-SNAPSHOT</version>
   
   <properties>
-
-	
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+	    <sonar.language>java</sonar.language>      
 </properties>
 
 
