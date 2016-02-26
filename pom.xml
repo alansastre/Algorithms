@@ -98,6 +98,33 @@
       </plugin>
     </plugins>
   </reporting>
+  
+  
+     <profiles>
+    
+      <profile>
+         <id>coverage</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.eluder.coveralls</groupId>
+                  <artifactId>coveralls-maven-plugin</artifactId>
+                  <version>4.0.0</version>
+                  <executions>
+                     <execution>
+                        <id>coveralls</id>
+                        <phase>verify</phase>
+                        <goals>
+                           <goal>jacoco</goal>
+                        </goals>
+                        <inherited>false</inherited>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      </profiles>
 
 
 </project>
