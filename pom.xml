@@ -9,14 +9,47 @@
   <artifactId>algorithms</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  
-  <properties>
-    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-	    <sonar.language>java</sonar.language>      
-</properties>
 
-
+    <properties>
+        <!-- Used to locate the profile specific configuration file. -->
+        <build.profile.id>all-test</build.profile.id>
+        <jacoco.it.execution.data.file>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.it.execution.data.file>
+        <jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.ut.execution.data.file>
+        <jdk.version>1.7</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Only unit tests are run by default. -->
+        <skip.integration.tests>true</skip.integration.tests>
+        <skip.unit.tests>false</skip.unit.tests>
+    </properties>
+    
+    
+    <profiles>
+        <profile>
+            <id>all-tests</id>
+            <properties>
+                <build.profile.id>all-tests</build.profile.id>
+                <!-- All tests are run. -->
+                <skip.integration.tests>false</skip.integration.tests>
+                <skip.unit.tests>false</skip.unit.tests>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+        </profile>
+        <profile>
+            <id>integration-test</id>
+            <properties>
+                <!-- Used to locate the profile specific configuration file. -->
+                <build.profile.id>integration-test</build.profile.id>
+                <!-- Only integration tests are run. -->
+                <skip.integration.tests>false</skip.integration.tests>
+                <skip.unit.tests>true</skip.unit.tests>
+            </properties>
+        </profile>
+    </profiles>
+    
+    
+    
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -25,7 +58,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  
   <build>
     <pluginManagement>
       <plugins>
