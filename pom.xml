@@ -15,9 +15,9 @@
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
      <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.language>java</sonar.language>        
-    <sonar.jacoco.reportPath>${project.basedir}/target/coverage-reports/jacoco.exec</sonar.jacoco.reportPath>
-    
-        	<sonar.junit.reportsPath>target/surefire-reports</sonar.junit.reportsPath>
+    <sonar.jacoco.reportPath>${project.basedir}/target/sonar/jacoco-overall.exec</sonar.jacoco.reportPath>
+
+	<sonar.junit.reportsPath>target/surefire-reports</sonar.junit.reportsPath>
 	<sonar.cobertura.reportPath>target/site/cobertura/index.html</sonar.cobertura.reportPath>
 	
 </properties>
